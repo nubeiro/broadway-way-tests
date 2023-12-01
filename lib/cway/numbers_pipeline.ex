@@ -33,12 +33,6 @@ defmodule NumbersPipeline do
   @impl true
   def handle_message(_processor, message, context) do
     logic = context[:calculator_module]
-    IO.inspect(logic, label: "===> Logic")
-    IO.inspect(message, label: "===> Message")
-
-    String.to_integer(message.data)
-    |> logic.compute()
-    |> IO.inspect(label: "===> Result")
 
     message
     |> Message.update_data(fn data -> {data, String.to_integer(data) |> logic.compute()} end)
@@ -46,8 +40,10 @@ defmodule NumbersPipeline do
 
   @impl true
   def handle_batch(_batcher, messages, _batch_info, _context) do
-    list = messages |> Enum.map(fn e -> e.data end)
-    IO.inspect(list, label: "Got batch")
+    messages
+    |> Enum.map(fn e -> e.data end)
+    |> IO.inspect(label: "Got batch")
+
     messages
   end
 end
