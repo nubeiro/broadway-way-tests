@@ -2,7 +2,7 @@ defmodule Cway.Calculator do
   @moduledoc """
   This module implements the calculator behaviour.
   """
-  @callback compute(integer) :: integer
+  @callback compute(integer) :: {:ok, integer} | {:error, String.t()}
 
   def compute(number), do: impl().compute(number)
 

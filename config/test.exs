@@ -16,4 +16,4 @@ config :phoenix, :plug_init_mode, :runtime
 config :cway,
   producer_module: Broadway.DummyProducer,
   producer_options: [],
-  calculator_module: Cway.CalculatorMock
+  calculator_module: Cway.MockedFixedCalculator

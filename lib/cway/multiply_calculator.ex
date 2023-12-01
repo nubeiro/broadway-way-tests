@@ -3,6 +3,6 @@ defmodule Cway.MultiplyCalculator do
 
   @impl Cway.Calculator
   def compute(number) do
-    number * 2
+    {:ok, number * 2}
   end
 end

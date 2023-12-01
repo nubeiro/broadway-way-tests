@@ -1,1 +1,1 @@
-Mox.defmock(Cway.CalculatorMock, for: Cway.Calculator)
+Mox.defmock(Cway.MockedFixedCalculator, for: Cway.Calculator)
